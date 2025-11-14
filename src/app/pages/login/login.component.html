@@ -1,0 +1,42 @@
+    <header>
+        <img id="logo_login" src="img/ford.png" alt="Logo da Ford">
+    </header>
+
+    <main class="container-login">
+
+        <div class="coluna-imagem">
+            <img id="Ranger_login" src="img/ranger.png" alt="Imagem da ranger">
+        </div>
+
+        <div class="coluna-formulario">
+            <h3>Boas-vindas</h3>
+            
+            <form action="/login" method="POST">
+                
+                <div class="input-container">
+                    <span class="material-symbols-outlined">person</span>
+                    <input type="text" id="login" name="usuario" required placeholder="Insira seu e-mail">
+                    <span class="material-symbols-outlined">info</span>
+                </div>
+                
+                <div class="input-container">
+                    <span class="material-symbols-outlined">lock</span>
+                    <input type="password" id="senha" name="senha" required placeholder="Insira sua senha">
+                    <span class="material-symbols-outlined">info</span>
+                </div>
+
+                <div class="toggle_container">
+                    <p>Logar automaticamente</p>
+                    <input type="checkbox" id="meu_toggle" class="toggle-checkbox">
+                    <label for="meu_toggle" class="toggle-label"></label>
+                    <img src="img/info_icons.png" alt="info_icons" class="info-icon">
+                </div>
+                
+                <div class="btn_login">
+                    <button id="enviar" type="submit">Entrar</button>
+                </div>
+            </form>
+        </div>
+        
+    </main>
+

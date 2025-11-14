@@ -1,0 +1,163 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #FFFFFF;
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    /* REMOVIDO: display: flex e flex-direction: column */
+}
+
+/* --- 2. Layout Principal (Header, Main, Footer) --- */
+header {
+    text-align: center; /* Centraliza o logo */
+    padding: 20px;
+}
+
+#logo_login {
+    max-width: 150px; /* Um bom tamanho para o logo */
+    height: auto;
+}
+
+.container-login {
+    display: flex; /* A MÁGICA: Cria as 2 colunas */
+    align-items: center; /* Alinha as colunas verticalmente */
+    width: 90%; /* Limita a largura na tela */
+    max-width: 1200px; /* Largura máxima */
+    margin: 20px auto; /* Centraliza o container */
+}
+
+.coluna-imagem {
+    flex: 1; /* Faz a coluna ocupar metade do espaço */
+    padding: 20px;
+}
+
+#Ranger_login {
+    width: 100%; /* Faz a imagem ser responsiva (se ajustar à coluna) */
+    height: auto;
+}
+
+.coluna-formulario {
+    flex: 1; /* Faz a coluna ocupar a outra metade */
+    padding: 20px;
+    max-width: 450px; /* Limita a largura do formulário */
+    margin: 0 auto; /* Centraliza o formulário na coluna */
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 12px;
+    color: #888;
+}
+
+/* --- 3. Estilos do Formulário --- */
+.coluna-formulario h3 {
+    color: #008000; /* Verde, como na imagem */
+    font-size: 24px;
+    margin-bottom: 25px;
+}
+
+/* --- 4. CSS PARA INPUTS COM ÍCONES (NOVO) --- */
+.input-container {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px 15px;
+    margin-bottom: 20px;
+    background-color: #fff;
+}
+
+.input-container input {
+    border: none;
+    outline: none;
+    flex: 1; /* Faz o input ocupar o espaço restante */
+    margin: 0 10px; /* Espaço entre os ícones e o texto */
+    font-size: 16px;
+}
+
+.input-container .material-symbols-outlined {
+    color: #999; /* Cor cinza para os ícones */
+}
+
+
+/* --- 5. CSS DO TOGGLE SWITCH (CORRIGIDO) --- */
+.toggle_container {
+    display: flex;
+    font-size: 14px; /* Tamanho menor como na imagem */
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.toggle_container p {
+    flex: 1; /* Empurra o toggle para a direita */
+    color: #555;
+}
+
+.toggle-checkbox {
+    display: none;
+}
+
+.toggle-label {
+    display: block;
+    width: 50px; /* Tamanho mais realista */
+    height: 26px; /* Tamanho mais realista */
+    background-color: #ccc;
+    border-radius: 26px;
+    position: relative;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.toggle-label::before {
+    content: '';
+    position: absolute;
+    width: 20px; /* Círculo (pino) */
+    height: 20px;
+    border-radius: 50%;
+    background-color: white;
+    top: 3px;
+    left: 3px;
+    transition: 0.3s;
+}
+
+.toggle-checkbox:checked + .toggle-label {
+    background-color: #4CAF50; /* Verde quando ligado */
+}
+
+.toggle-checkbox:checked + .toggle-label::before {
+    /* Move (largura_label - largura_pino - padding_left) -> (50 - 20 - 3) = 27... ou 50-20-3=27*/
+    transform: translateX(24px); /* Valor corrigido (50 - 20 - 6) */
+}
+
+.info-icon {
+    width: 16px;
+    height: 16px;
+}
+
+/* --- 6. Botão de Login --- */
+.btn_login {
+    display: flex; /* Para centralizar o botão */
+}
+
+#enviar {
+    background-color: #f0f0f0; /* Cinza claro (desabilitado) da imagem */
+    color: #aaa;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 12px 20px;
+    cursor: pointer;
+    width: 100%; /* Botão com largura total */
+    transition: background-color 0.3s ease;
+}
+
+#enviar:hover {
+    background-color: #e0e0e0;
+}
