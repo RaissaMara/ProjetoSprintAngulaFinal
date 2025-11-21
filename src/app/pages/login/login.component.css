@@ -12,10 +12,6 @@ body {
 }
 
 /* --- 2. Layout Principal (Header, Main, Footer) --- */
-header {
-    text-align: center; /* Centraliza o logo */
-    padding: 20px;
-}
 
 #logo_login {
     max-width: 150px; /* Um bom tamanho para o logo */
@@ -28,6 +24,8 @@ header {
     width: 90%; /* Limita a largura na tela */
     max-width: 1200px; /* Largura máxima */
     margin: 20px auto; /* Centraliza o container */
+    text-align: center; /* Centraliza o logo */
+    padding: 20px;
 }
 
 .coluna-imagem {
