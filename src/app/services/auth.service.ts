@@ -3,15 +3,17 @@ import { Usuario } from '../models/usuario.model';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
+const USER_KEY = 'auth-user';
+
 @Injectable({
   providedIn: 'root'
-})
+  })
 
-export class AuthService {
-
+  export class AuthService {
+  
   private apiUrl = 'http://localhost:3001';
-
-  const USER.KEY = 'auth-user'
+  
+  // private readonly USER_KEY = 'auth-user';
 
   constructor(private http:HttpClient) { }
 
