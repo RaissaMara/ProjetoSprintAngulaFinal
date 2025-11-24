@@ -8,10 +8,7 @@ import { DashboardService } from '../../services/dashboard.service';
   selector: 'app-dashboard',
   standalone: true,
   imports: [
-    CommonModule,
-    FormsModule,
-    HeaderComponent
-  ],
+    CommonModule, FormsModule, HeaderComponent],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
 })
@@ -55,20 +52,34 @@ export class DashboardComponent implements OnInit{
 
   // Função chamada quando trocamos o select ou iniciamos a tela
   atualizarTela() {
+    console.log('---Iniciando Atualização---')
+
+    console.log('Veículo Selecionado:', this.veiculoSelecionado);
+
     // 1. Encontra os dados gerais (Vendas, Conectados, Imagem) na lista que já baixamos
     this.veiculoAtual = this.listaVeiculos.find(v => v.vehicle === this.veiculoSelecionado);
+    console.log('Dados do Veículo (Card):', this.veiculoAtual);
 
     // 2. Pega o VIN correspondente no nosso mapa
     const vin = this.vinMap[this.veiculoSelecionado];
+    console.log('VIN encontrado para busca:', vin);
 
     // 3. Chama a API para pegar os dados da tabela (Odômetro, Combustível, etc)
     if (vin) {
+      console.log('Enviando requisição para API com VIN:', vin);
+
       this.DashboardService.getVehicleData(vin).subscribe({
         next: (dados: any) => {
+          console.log('SUCESSO! Dados recebidos da API:', dados);
           this.dadosTecnicos = dados;
         },
-        error: (err: any) => console.error('Erro ao buscar dados técnicos', err)
+        error: (err: any) => {
+          console.error('Erro ao buscar dados técnicos', err)
+        }
       });
-    }
+    }else {
+      console.warn('ATENÇÃO: Nenhum VIN encontrado no mapa para:', this.veiculoSelecionado);
+      console.warn('Verifique se o nome no vinMap é IDÊNTICO ao value do select.');
   }
+}
 }
