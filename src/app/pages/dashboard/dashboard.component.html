@@ -7,17 +7,20 @@
 
             </div>
 
-        <div class="row g-4 mb-4">
+        <div class="row g-4 mb-4" *ngIf="veiculoAtual">
 
     <div class="col-md-6 col-lg-3">
         <div class="card h-100">
             <div class="card-body">
                 <h5 class="card-title">Veículo</h5>
-                <select class="form-select">
-                    <option value="mustang" selected>Mustang</option>
+                <select class="form-select" [(ngModel)]="veiculoSelecionado" (change)="atualizarTela()">
+                    <option *ngFor="let item of listaVeiculos" [value]="item.vehicle">
+                        {{item.vehicle}}
+                    </option>
+                    <!-- <option value="mustang" selected>Mustang</option>
                     <option value="ranger">Ranger</option>
                     <option value="territory">Territory</option>
-                    <option value="bronco">Bronco Sport</option>
+                    <option value="bronco">Bronco Sport</option> -->
                 </select>
             </div>
         </div>
@@ -54,14 +57,18 @@
     </div>
 </div>
 
-        <div class="row mb-4">
+        <div class="row mb-4" *ngIf="veiculoAtual">
     <div class="col text-center">
-        <img src="img/mustang.png" alt="Mustang" class="img-fluid" style="max-width: 500px;"> 
+        <img [src]="veiculoAtual.img" 
+             [alt]="veiculoAtual.vehicle"
+             class="img-fluid"
+             style="max-width: 500px;">
+        <!-- <img src="img/mustang.png" alt="Mustang" class="img-fluid" style="max-width: 500px;">  -->
     </div>
              
     </div>
 
-        <div class="row">
+        <div class="row" *ngIf="dadosTecnicos">
     <div class="col">
         <div class="table-responsive">
             

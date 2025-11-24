@@ -19,6 +19,5 @@ const USER_KEY = 'auth-user';
 
   login(usuario:Pick<Usuario, 'nome'|'senha'>):Observable<Usuario>{
     return this.http.post<Usuario>(`${this.apiUrl}/login`,usuario);
-  }
-
+   }
 }
