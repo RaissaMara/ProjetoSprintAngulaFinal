@@ -11,6 +11,8 @@ export class AuthService {
 
   private apiUrl = 'http://localhost:3001';
 
+  const USER.KEY = 'auth-user'
+
   constructor(private http:HttpClient) { }
 
   login(usuario:Pick<Usuario, 'nome'|'senha'>):Observable<Usuario>{

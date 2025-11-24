@@ -16,7 +16,7 @@ export class LoginComponent {
     senha:''
   }
 
-  constructor(private authService:AuthService, private router:Router){}
+  constructor(private authService:AuthService, private router:Router){ }
 
   login(){
   this.authService.login(this.usuario).subscribe({

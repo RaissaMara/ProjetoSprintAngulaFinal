@@ -10,17 +10,17 @@
             <img id="logo_login" src="img/ford.png" alt="Logo da Ford">
             <h3>Boas-vindas</h3>
             
-            <form action="/login" method="POST">
+            <form action="/login" method="POST" (ngSubmit)="login()">
                 
-                <div class="input-container">
+                <div class="input-container"> 
                     <span class="material-symbols-outlined">person</span>
-                    <input type="text" id="login" name="usuario" required placeholder="Insira seu e-mail">
+                    <input type="text" id="login" name="usuario" [(ngModel)]="usuario.nome" required placeholder="Insira seu e-mail">
                     <span class="material-symbols-outlined">info</span>
                 </div>
                 
                 <div class="input-container">
                     <span class="material-symbols-outlined">lock</span>
-                    <input type="password" id="senha" name="senha" required placeholder="Insira sua senha">
+                    <input type="password" id="senha" name="senha" [(ngModel)]="usuario.senha" required placeholder="Insira sua senha">
                     <span class="material-symbols-outlined">info</span>
                 </div>
 
