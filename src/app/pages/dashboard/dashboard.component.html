@@ -1,4 +1,4 @@
- <app-header></app-header>
+<app-header></app-header>
  <main class="w-100 p-4">
         
         <div class="container-fluid">
@@ -69,6 +69,8 @@
     </div>
 
         <div class="row" *ngIf="dadosTecnicos">
+    O código VIN é obrigatório.
+  </div>
     <div class="col">
         <div class="table-responsive">
             
@@ -76,7 +78,7 @@
                 
                 <thead>
                     <tr>
-                        <!-- <th>Código-Vin</th> -->
+                        <th>Código-Vin</th>
                         <th>Odômetro</th>
                         <th>Nível de Combustível</th>
                         <th>Status</th>
@@ -87,10 +89,15 @@
                 
                 <tbody>
                     <tr>
-                        <!-- <td>{{ dadosTecnicos?.codigo-vin }}</td> -->
+                        <td><input type="text"[(ngModel)]="vinAtual" 
+                   (change)="buscarDadosPorVin()"class="..."
+                   placeholder="Digite e aperte Enter"
+                   style="min-width: 180px;"></td>
                         <td>{{ dadosTecnicos?.odometro }} Km</td>
                         <td>{{ dadosTecnicos?.nivelCombustivel }} %</td>
-                        <td>{{ dadosTecnicos?.status }}</td>
+                        <td><span [style.color]="dadosTecnicos?.status === 'on' ? 'green' : 'gray'">
+                                {{ dadosTecnicos?.status }} </span>
+                        </td>
                         <td>{{ dadosTecnicos?.lat }}</td>
                         <td>{{ dadosTecnicos?.long }}</td>
                     </tr>
@@ -99,5 +106,4 @@
             
         </div>
     </div>
-</div>
-    </main>
+</main>

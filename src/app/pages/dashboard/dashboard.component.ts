@@ -8,11 +8,13 @@ import { DashboardService } from '../../services/dashboard.service';
   selector: 'app-dashboard',
   standalone: true,
   imports: [
-    CommonModule, FormsModule, HeaderComponent],
+    CommonModule, FormsModule, HeaderComponent
+],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
 })
 export class DashboardComponent implements OnInit{
+  mensagemErro: string = '';
    veiculoSelecionado: string = 'Ranger'; // Começa com Ranger
   
   // Guardará a lista de veículos que veio da API (/vehicles)
@@ -32,6 +34,7 @@ export class DashboardComponent implements OnInit{
     'Territory': '2FRHDUYS2Y63NHD22455',
     'Bronco Sport': '2RFAASDY54E4HDU34875'
   };
+  vinAtual: string ='';
 
   constructor(private DashboardService:DashboardService) {}
 
@@ -49,6 +52,25 @@ export class DashboardComponent implements OnInit{
       error: (err: any) => console.error('Erro ao buscar veículos', err)
     });
   }
+
+  buscarDadosPorVin() {
+if (!this.vinAtual) return;
+
+    console.log('Buscando dados na API para VIN:', this.vinAtual);
+
+    // AQUI ESTAVA O ERRO: Trocamos vinDigitado por this.vinAtual
+    this.DashboardService.getVehicleData(this.vinAtual).subscribe({
+      next: (dados: any) => {
+        this.dadosTecnicos = dados;
+      },
+      error: (err: any) => {
+        console.warn('VIN não encontrado:', err);
+        this.dadosTecnicos = null;
+        this.mensagemErro = err.error?.message || 'Erro ao buscar VIN';
+      }
+    });
+}
+
 
   // Função chamada quando trocamos o select ou iniciamos a tela
   atualizarTela() {
@@ -82,4 +104,5 @@ export class DashboardComponent implements OnInit{
       console.warn('Verifique se o nome no vinMap é IDÊNTICO ao value do select.');
   }
 }
+
 }
