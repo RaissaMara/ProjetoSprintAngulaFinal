@@ -30,7 +30,7 @@
         <div class="card h-100 text-center">
             <div class="card-body">
                 <h5 class="card-title">Total de Vendas</h5>
-                <p class="h2">1500</p>
+                <p class="h2">{{ veiculoAtual.volumetotal }}</p>
                 <p class="card-text text-muted">Unid.</p>
             </div>
         </div>
@@ -40,7 +40,7 @@
         <div class="card h-100 text-center">
             <div class="card-body">
                 <h5 class="card-title">Conectados</h5>
-                <p class="h2">500</p>
+                <p class="h2">{{ veiculoAtual.connected }}</p>
                 <p class="card-text text-muted">Unid.</p>
             </div>
         </div>
@@ -50,7 +50,7 @@
         <div class="card h-100 text-center">
             <div class="card-body">
                 <h5 class="card-title">Update Software</h5>
-                <p class="h2">750</p>
+                <p class="h2">{{ veiculoAtual.softwareUpdates }}</p>
                 <p class="card-text text-muted">Unid.</p>
             </div>
         </div>
@@ -76,7 +76,7 @@
                 
                 <thead>
                     <tr>
-                        <th>Código-Vin</th>
+                        <!-- <th>Código-Vin</th> -->
                         <th>Odômetro</th>
                         <th>Nível de Combustível</th>
                         <th>Status</th>
@@ -87,12 +87,12 @@
                 
                 <tbody>
                     <tr>
-                        <td>fjnfklkdbndkbdk</td>
-                        <td>50000 Km</td>
-                        <td>90 %</td>
-                        <td>on</td>
-                        <td>-12.2322</td>
-                        <td>-35.2314</td>
+                        <!-- <td>{{ dadosTecnicos?.codigo-vin }}</td> -->
+                        <td>{{ dadosTecnicos?.odometro }} Km</td>
+                        <td>{{ dadosTecnicos?.nivelCombustivel }} %</td>
+                        <td>{{ dadosTecnicos?.status }}</td>
+                        <td>{{ dadosTecnicos?.lat }}</td>
+                        <td>{{ dadosTecnicos?.long }}</td>
                     </tr>
                     </tbody>
             </table>
